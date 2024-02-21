@@ -3,11 +3,15 @@
 {% block title %} Blog Details {% endblock %}
 
 {% block content %}
-
-<ul>
-     <li><a href="/">Home</a></li>
-     <li><a href="/blogs">Blogs</a></li>
-</ul>
-<h1>Blog Details : {{id}}</h1>
-
+<div class="container mt-3">
+     <div class="row">
+          <div class="col-3">
+               {% include 'partials/_categories.html' %}
+          </div>
+          <div class="col-9">
+               <h1>Blog Details: {{ id }}</h1>
+               <hr>
+          </div>
+     </div>
+</div>
 {% endblock %}
