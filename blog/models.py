@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Blog(models.Model):
@@ -7,9 +8,14 @@ class Blog(models.Model):
     description = models.TextField()
     is_active = models.BooleanField(default=False)
     is_home = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, unique=True, db_index=True, editable=False)
 
     def __str__(self):
         return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class Category(models.Model):
