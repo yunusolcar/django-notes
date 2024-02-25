@@ -6,8 +6,13 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ("title", "is_active", "is_home", "slug")
     list_editable = ("is_active", "is_home")
     search_fields = ("title", "description")
-    readonly_fields = ("slug" ,)
+    readonly_fields = ("slug",)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name", "slug")
+    readonly_fields = ("name", "slug")
 
 
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
