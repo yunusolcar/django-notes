@@ -11,7 +11,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "slug")
-    readonly_fields = ("name", "slug")
+    readonly_fields = ("slug", )
 
 
 admin.site.register(Blog, BlogAdmin)

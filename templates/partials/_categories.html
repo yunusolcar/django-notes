@@ -1,5 +1,8 @@
 <div class="list-group">
-     <a class="list-group-item list-group-action" href="#">Programming</a>
-     <a class="list-group-item list-group-action" href="#">Web Programming</a>
-     <a class="list-group-item list-group-action" href="#">Mobile Apps</a>
+     {% for category in categories %}
+
+     <a class="list-group-item list-group-action"
+          href="{% url 'blogs_by_category' category.slug %}">{{category.name|title }}</a>
+
+     {% endfor %}
 </div>
